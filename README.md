@@ -1,7 +1,3 @@
-Claro! Aqui está a versão aprimorada com instruções detalhadas sobre como usar a API, incluindo exemplos de endpoints CRUD.
-
----
-
 # Projeto de API com NodeJS, TypeScript, Prisma e SQLite
 
 Este projeto implementa uma API utilizando NodeJS com TypeScript, Prisma como ORM para gerenciamento de banco de dados SQLite. A aplicação segue o padrão arquitetural MVC (Model-View-Controller) e inclui modelos para `User`, `Post` e `Comment`, onde um `Post` possui vários `Comentários` e cada `Comentário` pertence a um `Post`. Além disso, um `Usuário` pode fazer `Comentários`.
