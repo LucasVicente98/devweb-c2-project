@@ -1,6 +1,7 @@
-import { Request, Response } from "express";
+import { Response } from "express";
 import bcrypt from 'bcryptjs';
 import jwt from 'jsonwebtoken';
+import { AuthenticatedRequest } from '../types/express'; // Importar o tipo AuthenticatedRequest
 import { PrismaClient } from "@prisma/client";
 
 const prisma = new PrismaClient();
@@ -11,7 +12,7 @@ const generateToken = (userId: number) => {
     });
 };
 
-export const register = async (req: Request, res: Response) => {
+export const register = async (req: AuthenticatedRequest, res: Response) => {
     const { email, name, password } = req.body;
     try {
         const hashedPassword = await bcrypt.hash(password, 10);
@@ -24,7 +25,7 @@ export const register = async (req: Request, res: Response) => {
     }
 };
 
-export const login = async (req: Request, res: Response) => {
+export const login = async (req: AuthenticatedRequest, res: Response) => {
     const { email, password } = req.body;
     try {
         const user = await prisma.user.findUnique({ where: { email } });

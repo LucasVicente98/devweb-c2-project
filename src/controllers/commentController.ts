@@ -1,7 +1,8 @@
-import { Request, Response } from 'express';
+import { Response } from 'express';
+import { AuthenticatedRequest } from '../types/express';
 import * as commentModel from '../models/commentModel';
 
-export const getComments = async (req: Request, res: Response) => {
+export const getComments = async (req: AuthenticatedRequest, res: Response) => {
     try {
         const comments = await commentModel.findAllComments();
         res.json(comments);
@@ -10,7 +11,7 @@ export const getComments = async (req: Request, res: Response) => {
     }
 };
 
-export const getCommentById = async (req: Request, res: Response) => {
+export const getCommentById = async (req: AuthenticatedRequest, res: Response) => {
     try {
         const comment = await commentModel.findCommentById(Number(req.params.id));
         if (!comment) return res.status(404).json({ error: 'Comment not found' });
@@ -20,7 +21,7 @@ export const getCommentById = async (req: Request, res: Response) => {
     }
 };
 
-export const createComment = async (req: Request, res: Response) => {
+export const createComment = async (req: AuthenticatedRequest, res: Response) => {
     try {
         const comment = await commentModel.createComment(req.body);
         res.status(201).json(comment);
@@ -29,7 +30,7 @@ export const createComment = async (req: Request, res: Response) => {
     }
 };
 
-export const updateComment = async (req: Request, res: Response) => {
+export const updateComment = async (req: AuthenticatedRequest, res: Response) => {
     try {
         const comment = await commentModel.updateComment(Number(req.params.id), req.body);
         if (!comment) return res.status(404).json({ error: 'Comment not found' });
@@ -39,7 +40,7 @@ export const updateComment = async (req: Request, res: Response) => {
     }
 };
 
-export const deleteComment = async (req: Request, res: Response) => {
+export const deleteComment = async (req: AuthenticatedRequest, res: Response) => {
     try {
         const comment = await commentModel.deleteComment(Number(req.params.id));
         if (!comment) return res.status(404).json({ error: 'Comment not found' });

@@ -6,11 +6,9 @@ import postRoutes from './routes/postRoutes';
 import commentRoutes from './routes/commentRoutes';
 import dotenv from 'dotenv';
 
-
 dotenv.config();
 
 const app = express();
-
 
 app.use(json());
 

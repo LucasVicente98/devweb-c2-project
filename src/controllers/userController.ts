@@ -1,7 +1,8 @@
 import { Request, Response } from 'express';
+import { AuthenticatedRequest } from '../types/express';
 import * as userModel from '../models/userModel';
 
-export const getUsers = async (req: Request, res: Response) => {
+export const getUsers = async (req: AuthenticatedRequest, res: Response) => {
     try {
         const users = await userModel.findAllUsers();
         res.json(users);
@@ -10,7 +11,7 @@ export const getUsers = async (req: Request, res: Response) => {
     }
 };
 
-export const getUserById = async (req: Request, res: Response) => {
+export const getUserById = async (req: AuthenticatedRequest, res: Response) => {
     try {
         const user = await userModel.findUserById(Number(req.params.id));
         if (!user) return res.status(404).json({ error: 'User not found' });
@@ -29,7 +30,7 @@ export const createUser = async (req: Request, res: Response) => {
     }
 };
 
-export const updateUser = async (req: Request, res: Response) => {
+export const updateUser = async (req: AuthenticatedRequest, res: Response) => {
     try {
         const user = await userModel.updateUser(Number(req.params.id), req.body);
         if (!user) return res.status(404).json({ error: 'User not found' });
@@ -39,7 +40,7 @@ export const updateUser = async (req: Request, res: Response) => {
     }
 };
 
-export const deleteUser = async (req: Request, res: Response) => {
+export const deleteUser = async (req: AuthenticatedRequest, res: Response) => {
     try {
         const user = await userModel.deleteUser(Number(req.params.id));
         if (!user) return res.status(404).json({ error: 'User not found' });

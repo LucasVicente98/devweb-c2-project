@@ -1,9 +1,10 @@
+import { PrismaClient } from '@prisma/client';
 import { Request } from 'express';
 
-declare module 'express-serve-static-core' {
-    interface Request {
-        user?: {
-            id: number;
-        };
-    }
+interface UserPayload {
+    id: number;
+}
+
+export interface AuthenticatedRequest extends Request {
+    user?: UserPayload;
 }

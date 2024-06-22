@@ -1,7 +1,8 @@
-import { Request, Response } from 'express';
+import { Response } from 'express';
+import { AuthenticatedRequest } from '../types/express';
 import * as postModel from '../models/postModel';
 
-export const getPosts = async (req: Request, res: Response) => {
+export const getPosts = async (req: AuthenticatedRequest, res: Response) => {
     try {
         const posts = await postModel.findAllPosts();
         res.json(posts);
@@ -10,7 +11,7 @@ export const getPosts = async (req: Request, res: Response) => {
     }
 };
 
-export const getPostById = async (req: Request, res: Response) => {
+export const getPostById = async (req: AuthenticatedRequest, res: Response) => {
     try {
         const post = await postModel.findPostById(Number(req.params.id));
         if (!post) return res.status(404).json({ error: 'Post not found' });
@@ -20,7 +21,7 @@ export const getPostById = async (req: Request, res: Response) => {
     }
 };
 
-export const createPost = async (req: Request, res: Response) => {
+export const createPost = async (req: AuthenticatedRequest, res: Response) => {
     try {
         const post = await postModel.createPost(req.body);
         res.status(201).json(post);
@@ -29,7 +30,7 @@ export const createPost = async (req: Request, res: Response) => {
     }
 };
 
-export const updatePost = async (req: Request, res: Response) => {
+export const updatePost = async (req: AuthenticatedRequest, res: Response) => {
     try {
         const post = await postModel.updatePost(Number(req.params.id), req.body);
         if (!post) return res.status(404).json({ error: 'Post not found' });
@@ -39,7 +40,7 @@ export const updatePost = async (req: Request, res: Response) => {
     }
 };
 
-export const deletePost = async (req: Request, res: Response) => {
+export const deletePost = async (req: AuthenticatedRequest, res: Response) => {
     try {
         const post = await postModel.deletePost(Number(req.params.id));
         if (!post) return res.status(404).json({ error: 'Post not found' });
