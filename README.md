@@ -1,9 +1,12 @@
-```markdown
-# Projeto de API com NodeJS, TypeScript, Prisma e SQLite
+Entendido, vamos corrigir isso e continuar melhorando a formatação do README.md:
 
-Este projeto implementa uma API utilizando NodeJS com TypeScript, Prisma como ORM para gerenciamento de banco de dados SQLite. A aplicação segue o padrão arquitetural MVC (Model-View-Controller) e inclui modelos para `User`, `Post` e `Comment`, onde um `Post` possui vários `Comentários` e cada `Comentário` pertence a um `Post`. Além disso, um `Usuário` pode fazer `Comentários`.
+---
 
-Projeto desenvolvido como parte da avaliação C2 da disciplina de Desenvolvimento de Aplicações Web II, ministrada pelo professor Otávio Lube na Faculdade Faesa.
+# Projeto de API com Node.js, TypeScript, Prisma e SQLite
+
+Este projeto implementa uma API utilizando Node.js com TypeScript, Prisma como ORM para gerenciamento de banco de dados SQLite. A aplicação segue o padrão arquitetural MVC (Model-View-Controller) e inclui modelos para `User`, `Post` e `Comment`, onde um `Post` possui vários `Comentários` e cada `Comentário` pertence a um `Post`. Além disso, um `Usuário` pode fazer `Comentários`.
+
+Desenvolvido como parte da avaliação C2 da disciplina de Desenvolvimento de Aplicações Web II, ministrada pelo professor Otávio Lube na Faculdade Faesa.
 
 ## Requisitos
 
@@ -36,10 +39,10 @@ my-prisma-app/
 │   │   ├── commentRoutes.ts
 │   │   ├── postRoutes.ts
 │   │   └── userRoutes.ts
-│   ├── models/
-│   │   ├── commentModel.ts
-│   │   ├── postModel.ts
-│   │   └── userModel.ts
+│   └── models/
+│       ├── commentModel.ts
+│       ├── postModel.ts
+│       └── userModel.ts
 └── tsconfig.json
 ```
 
@@ -60,7 +63,7 @@ my-prisma-app/
 
 3. **Configurar o banco de dados SQLite:**
 
-   - O arquivo `prisma/schema.prisma` define a estrutura do banco de dados SQLite.
+   O arquivo `prisma/schema.prisma` define a estrutura do banco de dados SQLite.
 
 4. **Executar as migrações do Prisma:**
 
@@ -78,9 +81,9 @@ my-prisma-app/
 
 ### Modelos Prisma
 
-- `User`: Define um usuário com relação com `Post` e `Comment`.
-- `Post`: Define um post com relação com `User` e `Comment`.
-- `Comment`: Define um comentário com relação com `User` e `Post`.
+- **User:** Define um usuário com relação com `Post` e `Comment`.
+- **Post:** Define um post com relação com `User` e `Comment`.
+- **Comment:** Define um comentário com relação com `User` e `Post`.
 
 ### Controladores (Controllers)
 
@@ -88,37 +91,37 @@ my-prisma-app/
 
 Controladores para autenticação de usuários.
 
-- `register`: Registra um novo usuário.
-- `login`: Autentica um usuário e gera um token JWT.
+- `register:` Registra um novo usuário.
+- `login:` Autentica um usuário e gera um token JWT.
 
 #### userController.ts
 
 Controladores para operações CRUD de usuários.
 
-- `getUsers`: Lista todos os usuários.
-- `getUserById`: Obtém um usuário pelo ID.
-- `updateUser`: Atualiza um usuário pelo ID.
-- `deleteUser`: Deleta um usuário pelo ID.
+- `getUsers:` Lista todos os usuários.
+- `getUserById:` Obtém um usuário pelo ID.
+- `updateUser:` Atualiza um usuário pelo ID.
+- `deleteUser:` Deleta um usuário pelo ID.
 
 #### postController.ts
 
 Controladores para operações CRUD de posts.
 
-- `getPosts`: Lista todos os posts.
-- `getPostById`: Obtém um post pelo ID.
-- `createPost`: Cria um novo post.
-- `updatePost`: Atualiza um post pelo ID.
-- `deletePost`: Deleta um post pelo ID.
+- `getPosts:` Lista todos os posts.
+- `getPostById:` Obtém um post pelo ID.
+- `createPost:` Cria um novo post.
+- `updatePost:` Atualiza um post pelo ID.
+- `deletePost:` Deleta um post pelo ID.
 
 #### commentController.ts
 
 Controladores para operações CRUD de comentários.
 
-- `getComments`: Lista todos os comentários.
-- `getCommentById`: Obtém um comentário pelo ID.
-- `createComment`: Cria um novo comentário.
-- `updateComment`: Atualiza um comentário pelo ID.
-- `deleteComment`: Deleta um comentário pelo ID.
+- `getComments:` Lista todos os comentários.
+- `getCommentById:` Obtém um comentário pelo ID.
+- `createComment:` Cria um novo comentário.
+- `updateComment:` Atualiza um comentário pelo ID.
+- `deleteComment:` Deleta um comentário pelo ID.
 
 ### Middleware
 
@@ -126,7 +129,7 @@ Controladores para operações CRUD de comentários.
 
 Middleware para autenticação de tokens JWT.
 
-- `authenticateToken`: Middleware que verifica a presença e validade do token JWT nos cabeçalhos das requisições.
+- `authenticateToken:` Middleware que verifica a presença e validade do token JWT nos cabeçalhos das requisições.
 
 ### Rotas (Routes)
 
@@ -134,43 +137,41 @@ Middleware para autenticação de tokens JWT.
 
 Rotas para endpoints de autenticação.
 
-- `POST /register`: Rota para registrar um novo usuário.
-- `POST /login`: Rota para autenticar um usuário e gerar um token JWT.
+- `POST /register:` Rota para registrar um novo usuário.
+- `POST /login:` Rota para autenticar um usuário e gerar um token JWT.
 
 #### userRoutes.ts
 
 Rotas para endpoints relacionados a usuários.
 
-- `GET /users`: Rota para listar todos os usuários.
-- `GET /users/:id`: Rota para obter um usuário pelo ID.
-- `PUT /users/:id`: Rota para atualizar um usuário pelo ID.
-- `DELETE /users/:id`: Rota para deletar um usuário pelo ID.
+- `GET /users:` Rota para listar todos os usuários.
+- `GET /users/:id:` Rota para obter um usuário pelo ID.
+- `PUT /users/:id:` Rota para atualizar um usuário pelo ID.
+- `DELETE /users/:id:` Rota para deletar um usuário pelo ID.
 
 #### postRoutes.ts
 
 Rotas para endpoints relacionados a posts.
 
-- `GET /posts`: Rota para listar todos os posts.
-- `GET /posts/:id`: Rota para obter um post pelo ID.
-- `POST /posts`: Rota para criar um novo post.
-- `PUT /posts/:id`: Rota para atualizar um post pelo ID.
-- `DELETE /posts/:id`: Rota para deletar um post pelo ID.
+- `GET /posts:` Rota para listar todos os posts.
+- `GET /posts/:id:` Rota para obter um post pelo ID.
+- `POST /posts:` Rota para criar um novo post.
+- `PUT /posts/:id:` Rota para atualizar um post pelo ID.
+- `DELETE /posts/:id:` Rota para deletar um post pelo ID.
 
 #### commentRoutes.ts
 
 Rotas para endpoints relacionados a comentários.
 
-- `GET /comments`: Rota para listar todos os comentários.
-- `GET /comments/:id`: Rota para obter um comentário pelo ID.
-- `POST /comments`: Rota para criar um novo comentário.
-- `PUT /comments/:id`: Rota para atualizar um comentário pelo ID.
-- `DELETE /comments/:id`: Rota para deletar um comentário pelo ID.
+- `GET /comments:` Rota para listar todos os comentários.
+- `GET /comments/:id:` Rota para obter um comentário pelo ID.
+- `POST /comments:` Rota para criar um novo comentário.
+- `PUT /comments/:id:` Rota para atualizar um comentário pelo ID.
+- `DELETE /comments/:id:` Rota para deletar um comentário pelo ID.
 
 ### Autenticação com JWT
 
-A autenticação é realizada utilizando tokens JWT (JSON Web Token
-
-) para garantir a segurança das operações. O token é gerado durante o login e deve ser enviado no cabeçalho `Authorization` das requisições que exigem autenticação.
+A autenticação é realizada utilizando tokens JWT (JSON Web Token) para garantir a segurança das operações. O token é gerado durante o login e deve ser enviado no cabeçalho `Authorization` das requisições que exigem autenticação.
 
 #### Registrando um novo usuário
 
@@ -219,7 +220,7 @@ npm start
 docker-compose up --build
 ```
 
-A aplicação estará disponível em `http://localhost:3000`.
+A aplicação estará disponível em http://localhost:3000.
 
 ## Usando a API
 
@@ -339,7 +340,9 @@ GET /comments/:id
 
 ```http
 POST /comments
-Content-Type: application/json
+Content-Type:
+
+ application/json
 Authorization: Bearer seu_token_jwt_aqui
 
 {
@@ -371,8 +374,3 @@ Authorization: Bearer seu_token_jwt_aqui
 ## Tratamento de Exceções
 
 O tratamento de exceções é realizado nos controladores (`controllers`) para garantir que respostas apropriadas sejam retornadas ao cliente em caso de erros, como recurso não encontrado ou falha na operação do banco de dados.
-
-## Contribuição
-
-Sinta-se à vontade para contribuir com melhorias, reportar problemas ou sugerir novas funcionalidades através das issues e pull requests.
-```
