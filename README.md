@@ -4,7 +4,7 @@
 
 Este projeto implementa uma API utilizando Node.js com TypeScript, Prisma como ORM para gerenciamento de banco de dados SQLite. A aplicação segue o padrão arquitetural MVC (Model-View-Controller) e inclui modelos para `User`, `Post` e `Comment`, onde um `Post` possui vários `Comentários` e cada `Comentário` pertence a um `Post`. Além disso, um `Usuário` pode fazer `Comentários`.
 
-Desenvolvido como parte da avaliação C2 da disciplina de Desenvolvimento de Aplicações Web II, ministrada pelo professor Otávio Lube na Faculdade Faesa.
+Desenvolvido como parte da avaliação C2 e C3 da disciplina de Desenvolvimento de Aplicações Web II, ministrada pelo professor Otávio Lube na Faculdade Faesa.
 
 ## Requisitos
 
