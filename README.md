@@ -8,7 +8,7 @@ Desenvolvido como parte da avaliação C2 e C3 da disciplina de Desenvolvimento 
 
 ## Requisitos
 
-- Node.js (v14 ou superior)
+- Node.js (v18 ou superior)
 - Docker (opcional, para contêinerização)
 
 ## Estrutura do Projeto
