@@ -1,5 +1,3 @@
-Entendido, vamos corrigir isso e continuar melhorando a formatação do README.md:
-
 ---
 
 # Projeto de API com Node.js, TypeScript, Prisma e SQLite
